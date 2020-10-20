@@ -2,7 +2,8 @@
     h1 {
         width: 100%;
         font-size: 2rem;
-        margin: .5rem; 
+        margin: .8rem 0; 
+        outline: 2p solid wheat;
     }
     
     .input_div{
