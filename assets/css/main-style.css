@@ -73,12 +73,14 @@ h1 {
 	align-items: center;
 	text-align: center;
 	margin-top: 2rem;
+	/* outline: 3px solid yellow; */
 }
 
 .item{
 	padding: 0.5rem;
-	border-bottom: 4px solid #fff;
 	margin-bottom: 1.5rem;
+	border-bottom: 4px solid #fff;
+	/* outline: 2px solid pink; */
 }
 
 .item_input{
@@ -87,7 +89,8 @@ h1 {
 	border: none;
 	color: #fff;
 	font-size: 1.4rem;
-	width: 245px;
+	width: 65%;
+	/* outline: 3px solid #E00; */
 }
 
 .editButton{

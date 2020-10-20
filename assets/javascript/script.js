@@ -1,15 +1,12 @@
 const addButton = document.querySelector('.addButton');
-let inputValue = document.querySelector('.input');
+let input = document.querySelector('.input');
 const container = document.querySelector('.container');
 // const add = document.querySelector('.add');
 
 let todosEX = window.localStorage.getItem("todos");
 let todos = JSON.parse(todosEX);
 
-if(window.localStorage.getItem("todos") == undefined){
-    todos = [];
-    window.localStorage.setItem("todos", JSON.stringify(todos));
-}
+//Local Storage?
 
 
 
@@ -32,12 +29,12 @@ class item{
     	let editButton = document.createElement('button');
     	editButton.classList.add('editButton');
     	editButton.innerHTML = "EDIT";
-    	editButton.addEventListener('click', () => this.edit(input, name));
+    	editButton.addEventListener('click', () => this.edit(input));
 
     	let removeButton = document.createElement('button');
     	removeButton.classList.add('removeButton');
     	removeButton.innerHTML = "REMOVE";
-    	removeButton.addEventListener('click', () => this.remove(itemBox, name));
+    	removeButton.addEventListener('click', () => this.remove(itemBox));
 
     	container.appendChild(itemBox);
 
@@ -46,56 +43,35 @@ class item{
         itemBox.appendChild(removeButton);
 
     }
-
-    edit(input, name){
-        if(input.disabled == true){
+    
+    edit(input){
            input.disabled = !input.disabled;
-        }
-    	else{
-            input.disabled = !input.disabled;
-            let indexof = todos.indexOf(name);
-            todos[indexof] = input.value;
-            window.localStorage.setItem("todos", JSON.stringify(todos));
-        }
     }
 
-    remove(itemBox, name){
-        itemBox.parentNode.removeChild(itemBox);
-        let index = todos.indexOf(name);
-        todos.splice(index, 1);
-        window.localStorage.setItem("todos", JSON.stringify(todos));
+    //Remove list element (item) 
+    remove(item){
+        container.removeChild(item);
     }
 }
 
+// Event Listener for button click
 addButton.addEventListener('click', check);
-//Arrow Key navigation for lightbox -Arrow key detection
-document.body.addEventListener('keydown', function(event) {
-    // var key = event.key;
-  
-    if(event.key === 13){
+
+// If the Enter key is pressed run the check function
+document.body.addEventListener('keydown', function(e) {
+	if(e.key === 'Enter'){
 		check();
 	}
-  }); 
-  
-// window.addEventListener('keydown', (e) => {
-// 	if(e == 13){
-// 		check();
-// 	}
-// })
+});
 
+// Add new item from input field if the input value is not empty
+// Then set input value to empty
 function check(){
-	if(inputValue.value != ""){
-		new item(inputValue.value);
-        todos.push(inputValue.value);
-        window.localStorage.setItem("todos", JSON.stringify(todos));
-		inputValue.value = "";
+	if(input.value != ""){
+		new item(input.value);
+		input.value = "";
 	}
 }
 
-
-for (let v = 0 ; v < todos.length ; v++){
-    new item(todos[v]);
-}
-
-
-new item("sport");
+// Starter Item
+new item("Get Groceries");
