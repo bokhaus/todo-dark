@@ -1,17 +1,21 @@
 @media screen and (max-width: 550px){
     h1 {
-        color: #fff;
+        width: 100%;
         font-size: 2rem;
         margin: .5rem; 
     }
+    
     .input_div{
-        display: inline-block;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 
     .input{
-        /* padding: 0.2rem 1rem; */
-        height: 30px;
-        width: 95%;
+        padding: 0.5rem 1rem;
+        height: 50px;
+        width: 350px;
         margin: 0.25rem;
         font-size: 1rem;
     }
@@ -22,31 +26,37 @@
     }
 
     .container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
         margin-top: 2rem;
+        /* outline: 3px solid yellow; */
     }
-
+    
     .item{
         padding: 0.5rem;
         margin-bottom: 1.5rem;
+        /* outline: 2px solid pink; */
     }
-
+    
     .item_input{
         font-size: 1.4rem;
-        width: 65%;
+        text-align: center;
+        /* width: 65%; */
+        /* outline: 3px solid #E00; */
     }
-
+    
     .editButton{
-        font-size: 1.4rem;
-        margin: 0 0.5rem;
+        width: 45%;
+        font-size: 1rem;
+        margin: .5rem 0;
+        outline: 2px solid slateblue;
     }
-
+    
     .removeButton{
-        font-size: 1.4rem;
+        width: 45%;
+        font-size: 1rem;
+        margin: .5rem 0;
+        outline: 2px solid slateblue;
     }
+}
+@media screen and (max-width: 300px){
 
 }
