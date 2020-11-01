@@ -7,7 +7,13 @@ let todosEX = window.localStorage.getItem("todos");
 let todos = JSON.parse(todosEX);
 
 //Local Storage?
+if(window.localStorage.getItem("todos") == undefined){
+	var todos = [];
+	window.localStorage.setItem("todos", JSON.stringify(todos));
+}
 
+var todosEX = window.localStorage.getItem("todos");
+var todos = JSON.parse(todosEX);
 
 
 class item{
